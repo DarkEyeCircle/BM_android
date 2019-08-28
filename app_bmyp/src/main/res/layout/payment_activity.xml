@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handlers"
+            type="com.yueke.app.bmyp.activitys.PaymentActivity" />
+
+        <variable
+            name="pageData"
+            type="com.askia.coremodel.viewmodel.PaymentViewModel.PageData" />
+
+    </data>
+
+
+    <FrameLayout
+        android:id="@+id/layoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.qmuiteam.qmui.widget.QMUITopBar
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/qmui_topbar_height"
+            android:paddingLeft="@dimen/dp_20"
+            app:qmui_topbar_bg_color="@color/white"
+            app:qmui_topbar_image_btn_height="@dimen/dp_21"
+            app:qmui_topbar_image_btn_width="@dimen/dp_22"
+            app:qmui_topbar_left_back_drawable_id="@drawable/icon_back"
+            app:qmui_topbar_separator_color="@color/transparent"
+            app:qmui_topbar_title_color="@color/black"
+            app:qmui_topbar_title_text_size="@dimen/sp_18" />
+
+        <com.qmuiteam.qmui.widget.QMUIEmptyView
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/qmui_topbar_height"
+            android:background="@color/white"
+            app:qmui_show_loading="true"
+            app:qmui_title_text="正在加载">
+
+
+            <LinearLayout
+                android:id="@+id/main_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/line_color"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingBottom="@dimen/dp_15"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20"
+                    android:paddingTop="@dimen/dp_15">
+
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_30"
+                        android:checked="true"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbt_memberBear"
+                            android:layout_width="0dip"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/radio_button_radius_bg_selectcolor"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:onClick="@{handlers::membersBear}"
+                            android:text="会员承担保证金"
+                            android:textColor="@color/radiobutton_textcolor"
+                            android:textSize="@dimen/sp_16" />
+
+                        <RadioButton
+                            android:layout_width="0dip"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_20"
+                            android:layout_weight="1"
+                            android:background="@drawable/radio_button_radius_bg_selectcolor"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:onClick="@{handlers::merchantsBear}"
+                            android:text="商户承担保证金"
+                            android:textColor="@color/radiobutton_textcolor"
+                            android:textSize="@dimen/sp_16" />
+
+                    </RadioGroup>
+
+                </FrameLayout>
+
+
+                <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/dp_20"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20"
+                    app:qmui_backgroundColor="@color/white"
+                    app:qmui_radius="@dimen/dp_10">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:text="@string/payment_amount"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_50">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="@dimen/dp_3"
+                            android:gravity="bottom"
+                            android:text="￥"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_8"
+                            android:textStyle="bold" />
+
+                        <com.yueke.app.bmyp.widgets.PayAmountEdittext
+                            android:id="@+id/et_payAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_10"
+                            android:background="@null"
+                            android:digits="0123456789."
+                            android:gravity="bottom"
+                            android:hint="@string/payment_hint"
+                            android:maxLength="9"
+                            android:maxLines="1"
+                            android:text="@={pageData.paymentMoney}"
+                            android:textColor="@color/black"
+                            android:textCursorDrawable="@drawable/editttext_cursor"
+                            android:textSize="@dimen/sp_18" />
+
+
+                        <TextView
+                            android:id="@+id/bt_modify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right|bottom"
+                            android:gravity="bottom"
+                            android:onClick="@{handlers::modifyMoney}"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:text="修改"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/sp_14" />
+
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:background="@color/line_color" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="@dimen/dp_8"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="可用余额："
+                                android:textColor="@color/bg_999999"
+                                android:textSize="@dimen/sp_10" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{pageData.balance}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_10" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/available_balance_laytou"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginTop="@dimen/dp_8"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="额外质保金："
+                                android:textColor="@color/bg_999999"
+                                android:textSize="@dimen/sp_10" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/RNB"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_10" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{pageData.poundage}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_10" />
+
+                        </LinearLayout>
+                    </FrameLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:id="@+id/imgv_QR_code"
+                            android:layout_width="@dimen/dp_160"
+                            android:layout_height="@dimen/dp_160" />
+
+                        <com.qmuiteam.qmui.alpha.QMUIAlphaButton
+                            android:id="@+id/bt_gradient"
+                            android:layout_width="@dimen/dp_150"
+                            android:layout_height="@dimen/dp_44"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/dp_30"
+                            android:background="@drawable/gradient_radius_selectcolor"
+                            android:enabled="false"
+                            android:onClick="@{handlers::generateOR}"
+                            android:text="@string/generate_or"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_18" />
+
+                    </LinearLayout>
+
+                </com.qmuiteam.qmui.widget.roundwidget.QMUIRoundLinearLayout>
+
+            </LinearLayout>
+
+        </com.qmuiteam.qmui.widget.QMUIEmptyView>
+
+    </FrameLayout>
+
+</layout>

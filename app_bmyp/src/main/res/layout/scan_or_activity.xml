@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handlers"
+            type="com.yueke.app.bmyp.activitys.ScanQRActivity" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!--标题栏-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_49"
+            android:background="@android:color/transparent">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="@{handlers::jumpToBack}"
+                android:paddingLeft="@dimen/dp_20"
+                android:paddingRight="@dimen/dp_20">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="@dimen/dp_21"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/icon_back_white" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:onClick="@{handlers::openGallery}"
+                android:paddingLeft="@dimen/dp_20"
+                android:paddingRight="@dimen/dp_20">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_select_pic" />
+
+            </FrameLayout>
+
+
+        </FrameLayout>
+
+        <!--提示语-->
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="@dimen/dp_198"
+            android:enabled="false"
+            android:padding="@dimen/dp_8"
+            android:text="@string/scan_or_hint"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_14"
+            app:qmui_backgroundColor="@color/black"
+            app:qmui_borderColor="@color/black" />
+
+        <!--闪光灯-->
+        <FrameLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="@dimen/dp_75"
+            android:background="@drawable/shape_circle_black"
+            android:onClick="@{handlers::switchBulb}">
+
+            <ImageView
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_bulb" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>

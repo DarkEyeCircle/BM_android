@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handlers"
+            type="com.yueke.app.bmyp.fragments.MineFragment" />
+
+        <variable
+            name="pageData"
+            type="com.askia.coremodel.viewmodel.MineFragmentViewModel.PageData" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/line_color"
+        android:orientation="vertical">
+        <!--头部-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingTop="@dimen/dp_10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:paddingBottom="@dimen/dp_10"
+                android:text="@string/mine"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_23"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:layout_width="@dimen/dp_22"
+                android:layout_height="@dimen/dp_20"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/dp_20"
+                android:onClick="@{handlers::jumpToChat}"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_message_black" />
+
+        </FrameLayout>
+
+        <!--用户信息-->
+        <com.qmuiteam.qmui.alpha.QMUIAlphaLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:onClick="@{handlers::jumpToMyInformation}"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/dp_14"
+            android:paddingTop="@dimen/dp_14">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imgv_head"
+                android:layout_width="@dimen/dp_65"
+                android:layout_height="@dimen/dp_65"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:onClick="@{handlers::lookHead}"
+                app:actualImageScaleType="fitXY"
+                app:placeholderImage="@drawable/icon_head_unenabled"
+                app:placeholderImageScaleType="fitXY"
+                app:roundAsCircle="true" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_16">
+
+                <LinearLayout
+                    android:id="@+id/mine_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{pageData.nickName}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_17"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_9"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/member_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/dp_15"
+                            android:background="@drawable/radius_shape_bg"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/dp_7"
+                            android:paddingRight="@dimen/dp_7">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:text="@{pageData.dictLevelName}"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_9"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="@dimen/dp_25"
+                            android:layout_height="@dimen/dp_15"
+                            android:layout_marginLeft="@dimen/dp_5"
+                            android:scaleType="fitXY"
+                            android:src="@{pageData.isMan?@drawable/icon_boy:@drawable/icon_girl}"
+                            android:visibility="@{pageData.isNeutralPeople ? 8 : 0}" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/login_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="请点击登陆"
+                    android:textColor="#999999"
+                    android:textSize="@dimen/sp_18" />
+
+            </FrameLayout>
+
+
+        </com.qmuiteam.qmui.alpha.QMUIAlphaLinearLayout>
+
+        <!--功能选项-->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/transparent"
+            android:overScrollMode="never"
+            android:paddingBottom="@dimen/dp_10"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:background="@color/white"
+                    android:onClick="@{handlers::jumpToUpgradeMembership}"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_crown" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        android:text="@string/upgrade_membership"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_17" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:src="@drawable/icon_more" />
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <!--分割线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="@color/lighter_gray" />
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:background="@color/white"
+                    android:onClick="@{handlers::jumpToMyWallet}"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_wallet" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        android:text="@string/mine_wallet"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_17" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:src="@drawable/icon_more" />
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <!--分割线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="@color/lighter_gray" />
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:background="@color/white"
+                    android:onClick="@{handlers::jumpToIntegralAccount}"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_integral_account" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        android:text="@string/integral_account"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_17" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:src="@drawable/icon_more" />
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <!--分割线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="@color/lighter_gray" />
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:background="@color/white"
+                    android:onClick="@{handlers::jumpToBill}"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_bill" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        android:text="@string/bill"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_17" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:src="@drawable/icon_more" />
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:background="@color/white"
+                    android:onClick="@{handlers::jumpToAddrManager}"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_shipping_address" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        android:text="@string/shipping_address"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_17" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:src="@drawable/icon_more" />
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <!--分割线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="@color/lighter_gray" />
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:background="@color/white"
+                    android:onClick="@{handlers::jumpToServiceTerms}"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_terms_of_service" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        android:text="@string/terms_of_service"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_17" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:src="@drawable/icon_more" />
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <!--分割线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="@color/lighter_gray" />
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:background="@color/white"
+                    android:onClick="@{handlers::jumpToRecommended}"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_recommended_menu" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        android:text="@string/recommended"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_17" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:src="@drawable/icon_more" />
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <!--分割线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="@color/lighter_gray" />
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:background="@color/white"
+                    android:onClick="@{handlers::jumpToAngency}"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_factor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        android:text="@string/factor"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_17" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:src="@drawable/icon_more" />
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:background="@color/white"
+                    android:onClick="@{handlers::jumpToSetting}"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_setting" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        android:text="@string/setting"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_17" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginLeft="@dimen/dp_16"
+                        android:src="@drawable/icon_more" />
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

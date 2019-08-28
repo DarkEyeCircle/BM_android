@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handlers"
+            type="com.yueke.app.bmyp.activitys.ApplyAgencyActivity" />
+
+        <variable
+            name="pageData"
+            type="com.askia.coremodel.viewmodel.ApplyAgencyViewModel.PageData" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <com.qmuiteam.qmui.widget.QMUITopBar
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/qmui_topbar_height"
+            android:paddingLeft="@dimen/dp_20"
+            app:qmui_topbar_bg_color="@color/white"
+            app:qmui_topbar_image_btn_height="@dimen/dp_21"
+            app:qmui_topbar_image_btn_width="@dimen/dp_22"
+            app:qmui_topbar_left_back_drawable_id="@drawable/icon_back"
+            app:qmui_topbar_separator_color="@color/transparent"
+            app:qmui_topbar_title_color="@color/black"
+            app:qmui_topbar_title_text_size="@dimen/sp_18" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/qmui_topbar_height"
+            android:background="@color/line_color"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dp_20"
+                android:paddingRight="@dimen/dp_20">
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:text="@string/name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:gravity="bottom|right"
+                        android:hint="@string/please_input_real_name"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:text="@={pageData.realName}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_14" />
+
+
+                </FrameLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@color/lighter_gray" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:text="@string/phone_num"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_14" />
+
+                    <com.nanchen.bankcardutil.ContentWithSpaceEditText
+                        android:id="@+id/et_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:gravity="bottom|right"
+                        android:hint="@string/please_input_phone_num"
+                        android:maxLines="1"
+                        android:text="@={pageData.phoneNum}"
+                        android:textColor="@color/black"
+                        android:textCursorDrawable="@drawable/editttext_cursor"
+                        android:textSize="@dimen/sp_14" />
+
+
+                </FrameLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@color/lighter_gray" />
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:text="@string/idcard_num"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_14" />
+
+                    <com.nanchen.bankcardutil.ContentWithSpaceEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:gravity="bottom|right"
+                        android:hint="@string/please_input_idcard_num"
+                        android:maxLength="18"
+                        android:maxLines="1"
+                        android:text="@={pageData.IDCardNum}"
+                        android:textColor="@color/black"
+                        android:textCursorDrawable="@drawable/editttext_cursor"
+                        android:textSize="@dimen/sp_14"
+                        app:input_type="identify_card_no" />
+
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@color/lighter_gray" />
+
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/where_area"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_14" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:enabled="false"
+                                android:gravity="right"
+                                android:hint="@string/please_select_area"
+                                android:maxLines="1"
+                                android:text="@{pageData.curCity}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_14" />
+
+                        </LinearLayout>
+
+
+                    </FrameLayout>
+
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@color/lighter_gray" />
+
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:onClick="@{handlers::selectAgencyLevel}">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/agent_level"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_14" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:gravity="right"
+                                android:hint="@string/please_select_agency_level"
+                                android:maxLines="1"
+                                android:text="@={pageData.agencyLevel}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_14" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp_5"
+                                android:src="@drawable/icon_more" />
+
+                        </LinearLayout>
+
+
+                    </FrameLayout>
+
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@color/lighter_gray" />
+
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:id="@+id/bt_selectCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:onClick="@{handlers::doSelectCity}">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/agent_area"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_14" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:gravity="right"
+                                android:hint="@string/please_select_agency_area"
+                                android:maxLines="1"
+                                android:text="@={pageData.agencyArea}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_14" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp_5"
+                                android:src="@drawable/icon_more" />
+
+                        </LinearLayout>
+
+
+                    </FrameLayout>
+
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@color/lighter_gray" />
+
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaButton
+                    android:id="@+id/bt_apply"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:background="@drawable/gradient_radius_selectcolor"
+                    android:enabled="false"
+                    android:onClick="@{handlers::doApplyNow}"
+                    android:text="@string/apply_now"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_18" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dp_10"
+                android:paddingTop="@dimen/dp_10"
+                android:text="客服电话："
+                android:textSize="@dimen/sp_12" />
+
+            <com.qmuiteam.qmui.widget.textview.QMUILinkTextView
+                android:id="@+id/link_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{handlers::callPhone}"
+                android:paddingBottom="@dimen/dp_10"
+                android:paddingLeft="@dimen/dp_2"
+                android:paddingRight="@dimen/dp_2"
+                android:paddingTop="@dimen/dp_10"
+                android:text="@string/service_mobile"
+                app:qmui_linkBackgroundColor="@color/white"
+                app:qmui_linkTextColor="@color/app_color_blue" />
+        </LinearLayout>
+    </FrameLayout>
+
+
+</layout>

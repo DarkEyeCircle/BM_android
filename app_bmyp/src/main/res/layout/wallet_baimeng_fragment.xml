@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handlers"
+            type="com.yueke.app.bmyp.fragments.BMWalletFragment" />
+
+        <variable
+            name="pageData"
+            type="com.askia.coremodel.viewmodel.WalletBalanceViewModel.PageData" />
+
+    </data>
+
+    <com.qmuiteam.qmui.widget.QMUIEmptyView
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:qmui_show_loading="true"
+        app:qmui_title_text="正在加载">
+
+        <LinearLayout
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dp_20"
+            android:paddingRight="@dimen/dp_20">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_90"
+                android:background="@drawable/baimeng_wallet_bg">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="账户余额(元)"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_11" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:text="@{pageData.balance}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_18"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+            </FrameLayout>
+
+            <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                android:id="@+id/bt_recharge"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@color/white"
+                android:onClick="@{handlers::itemOnclick}">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/icon_recharge" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_40"
+                    android:text="@string/recharge"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_17" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:src="@drawable/icon_more" />
+
+            </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+            <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                android:id="@+id/bt_withdrawal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:background="@color/white"
+                android:onClick="@{handlers::itemOnclick}">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/icon_reflect" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_40"
+                    android:text="@string/draw_money"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_17" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:src="@drawable/icon_more" />
+
+            </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+            <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                android:id="@+id/bt_transfer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:background="@color/white"
+                android:onClick="@{handlers::itemOnclick}">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/icon_transfer" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_40"
+                    android:text="@string/transfer"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_17" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:src="@drawable/icon_more" />
+
+            </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+            <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                android:id="@+id/bt_financial_details"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:background="@color/white"
+                android:onClick="@{handlers::itemOnclick}">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/icon_financial_details" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_40"
+                    android:text="@string/financial_details"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_17" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:src="@drawable/icon_more" />
+
+            </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+            <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                android:id="@+id/bt_exchange_card"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:background="@color/white"
+                android:onClick="@{handlers::itemOnclick}">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/icon_convert_coupon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_40"
+                    android:text="@string/convert_coupon"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_17" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:src="@drawable/icon_more" />
+
+            </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+
+        </LinearLayout>
+
+    </com.qmuiteam.qmui.widget.QMUIEmptyView>
+
+</layout>

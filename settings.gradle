@@ -1,0 +1,1 @@
+include ':app_bmyp', ':lib_opensource', ':lib_coremodel', ':lib_common', 'Extras:picture_library', 'Extras:ucrop', 'Extras:loadingDialog_library', 'Extras:keyboard_library', 'Extras:zxing-library', 'Extras:viewpagercards_library'

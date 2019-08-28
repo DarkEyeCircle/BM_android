@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handlers"
+            type="com.yueke.app.bmyp.activitys.ProceedsActivity" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp_40"
+            android:paddingTop="@dimen/dp_40">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="扫描二维码，向我付钱"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14" />
+
+            <LinearLayout
+                android:id="@+id/money_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp_30"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/RNB"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_4"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_19" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgv_QR_code"
+                android:layout_width="@dimen/dp_180"
+                android:layout_height="@dimen/dp_180"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp_30" />
+
+            <FrameLayout
+                android:layout_width="@dimen/dp_180"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp_30"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.qmuiteam.qmui.alpha.QMUIAlphaTextView
+                        android:id="@+id/bt_set_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{handlers::setMoney}"
+                        android:padding="@dimen/dp_10"
+                        android:text="@string/set_amount"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/sp_14" />
+
+                    <com.qmuiteam.qmui.alpha.QMUIAlphaTextView
+                        android:id="@+id/bt_clear_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{handlers::clearMoney}"
+                        android:padding="@dimen/dp_10"
+                        android:text="清除金额"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/sp_14" />
+                </FrameLayout>
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:onClick="@{handlers::saveQRCode}"
+                    android:padding="@dimen/dp_10"
+                    android:text="@string/save_pic"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/sp_14" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"
+                android:background="@color/line_color" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:text="收款总计："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            </FrameLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</layout>

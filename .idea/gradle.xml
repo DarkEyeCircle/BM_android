@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Extras" />
+            <option value="$PROJECT_DIR$/Extras/keyboard_library" />
+            <option value="$PROJECT_DIR$/Extras/loadingDialog_library" />
+            <option value="$PROJECT_DIR$/Extras/picture_library" />
+            <option value="$PROJECT_DIR$/Extras/ucrop" />
+            <option value="$PROJECT_DIR$/Extras/viewpagercards_library" />
+            <option value="$PROJECT_DIR$/Extras/zxing-library" />
+            <option value="$PROJECT_DIR$/app_bmyp" />
+            <option value="$PROJECT_DIR$/lib_common" />
+            <option value="$PROJECT_DIR$/lib_coremodel" />
+            <option value="$PROJECT_DIR$/lib_opensource" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

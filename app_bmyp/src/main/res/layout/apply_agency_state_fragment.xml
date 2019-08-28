@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handlers"
+            type="com.yueke.app.bmyp.fragments.ApplyAgencyStateFragment" />
+
+        <variable
+            name="pageData"
+            type="com.askia.coremodel.viewmodel.ApplyAgencyStateViewModel.PageData" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/line_color"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dp_20"
+                android:paddingRight="@dimen/dp_20">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:gravity="center_vertical"
+                    android:text="审核信息"
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/lighter_gray" />
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:text="@string/name"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:gravity="bottom|right"
+                        android:hint="@string/please_input_real_name"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:text="@{pageData.realName}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_14" />
+
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:text="@string/phone_num"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/sp_14" />
+
+                    <com.nanchen.bankcardutil.ContentWithSpaceEditText
+                        android:id="@+id/et_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:gravity="bottom|right"
+                        android:hint="@string/please_input_phone_num"
+                        android:maxLines="1"
+                        android:text="@={pageData.phoneNum}"
+                        android:textColor="@color/black"
+                        android:textCursorDrawable="@drawable/editttext_cursor"
+                        android:textSize="@dimen/sp_14" />
+
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:text="@string/idcard_num"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/sp_14" />
+
+                    <com.nanchen.bankcardutil.ContentWithSpaceEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:gravity="bottom|right"
+                        android:hint="@string/please_input_idcard_num"
+                        android:maxLength="18"
+                        android:maxLines="1"
+                        android:text="@={pageData.IDCardNum}"
+                        android:textColor="@color/black"
+                        android:textCursorDrawable="@drawable/editttext_cursor"
+                        android:textSize="@dimen/sp_14"
+                        app:input_type="identify_card_no" />
+
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/where_area"
+                            android:textColor="#666666"
+                            android:textSize="@dimen/sp_14" />
+
+
+                        <com.yueke.app.bmyp.widgets.MarqueTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp_10"
+                            android:background="@null"
+                            android:ellipsize="marquee"
+                            android:enabled="false"
+                            android:gravity="right"
+                            android:hint="@string/please_select_area"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:singleLine="true"
+                            android:text="@{pageData.curCity}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_14" />
+
+
+                    </LinearLayout>
+
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/agent_level"
+                            android:textColor="#666666"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="@string/please_select_agency_level"
+                            android:maxLines="1"
+                            android:text="@={pageData.agencyLevel}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_14" />
+
+
+                    </FrameLayout>
+
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                    android:id="@+id/bt_selectCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/agent_area"
+                            android:textColor="#666666"
+                            android:textSize="@dimen/sp_14" />
+
+                        <com.yueke.app.bmyp.widgets.MarqueTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp_10"
+                            android:background="@null"
+                            android:ellipsize="marquee"
+                            android:enabled="false"
+                            android:gravity="right"
+                            android:hint="@string/please_select_agency_area"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:singleLine="true"
+                            android:text="@{pageData.agencyArea}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_14" />
+                    </LinearLayout>
+
+
+                </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:background="@color/lighter_gray" />
+
+
+            </LinearLayout>
+
+
+            <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dp_20"
+                android:paddingRight="@dimen/dp_20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="审核状态"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/tv_audit_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:background="@null"
+                    android:enabled="false"
+                    android:gravity="center_vertical|right"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:text="@{pageData.auditState}"
+                    android:textColor="#ff4c4c"
+                    android:textSize="@dimen/sp_14" />
+
+
+            </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+            <TextView
+                android:id="@+id/tv_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/dp_10"
+                android:paddingLeft="@dimen/dp_20"
+                android:paddingRight="@dimen/dp_20"
+                android:paddingTop="@dimen/dp_10"
+                android:text="@{pageData.msg}"
+                android:textColor="@color/black"
+                android:visibility="@{pageData.auditFailer ? 0:8}" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:visibility="@{pageData.auditFailer ? 0:8}">
+
+
+            <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{handlers::callPhone}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="联系客服"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_18" />
+
+            </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="@dimen/dp_25"
+                android:layout_gravity="center_vertical"
+                android:background="@color/lighter_gray" />
+
+            <com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{handlers::submitAgain}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="重新提交"
+                    android:textColor="#ff4c4c"
+                    android:textSize="@dimen/sp_18" />
+
+            </com.qmuiteam.qmui.alpha.QMUIAlphaFrameLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+
+</layout>

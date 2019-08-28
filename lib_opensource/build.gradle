@@ -1,0 +1,129 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion parent.ext.compileSdkVersion
+    buildToolsVersion parent.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion parent.ext.minSdkVersion
+        targetSdkVersion parent.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    //解决重复引用RxJava冲突
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+
+    //Test
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Support libraries
+    api "com.android.support:appcompat-v7:$supportVersion"
+    api "com.android.support:support-v4:$supportVersion"
+    api "com.android.support:recyclerview-v7:$supportVersion"
+    api "com.android.support:cardview-v7:$supportVersion"
+    api "com.android.support:design:$supportVersion"
+    api "com.android.support:support-annotations:$supportVersion"
+
+    //Architecture components For Lifecycles, LiveData, and ViewModel
+    api 'android.arch.lifecycle:runtime:1.1.1'
+    api 'android.arch.lifecycle:extensions:1.1.1'
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+
+    //Facebook fresco
+    api 'com.facebook.fresco:fresco:1.5.0'
+
+    //http
+    api 'com.squareup.retrofit2:retrofit:2.4.0'
+    api 'com.squareup.retrofit2:converter-gson:2.3.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    api 'com.squareup.okhttp3:okhttp:3.10.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
+    // RxComment
+    api 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    api 'io.reactivex.rxjava2:rxjava:2.1.9'
+    api 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
+    //Arouter
+    api 'com.alibaba:arouter-api:1.2.4'
+
+    //logutils
+    api 'com.apkfuns.logutils:library:1.5.1.1'
+
+    //RecyclerView Adapter
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+
+    //QMUI
+    api 'com.qmuiteam:qmui:1.1.2'
+
+    //Marquee TextView
+    api 'com.sunfusheng:marqueeview:1.3.3'
+
+    //二维码识别库
+    api project(':Extras:zxing-library')
+
+    //刮刮乐
+    api 'com.clock.scratch:Scratch:1.0.0'
+
+    //Toast
+    api 'com.github.GrenderG:Toasty:1.3.0'
+
+    //Loading Dialog
+    api project(':Extras:loadingDialog_library')
+
+    //keyboard
+    api project(':Extras:keyboard_library')
+
+    //城市选择器
+    api 'liji.library.dev:citypickerview:3.1.8'
+
+    //65K问题
+    api 'com.android.support:multidex:1.0.3'
+
+    //BankCardUtils
+    api 'com.github.nanchen2251:BankCardUtils:1.0.2'
+
+    //DataTime Picker
+    api 'com.wdullaer:materialdatetimepicker:3.6.0'
+    api files('libs/sunjce_provider.jar')
+
+    //阿里图片上传 OSS
+    api 'com.aliyun.dpa:oss-android-sdk:2.8.3'
+    api 'com.squareup.okio:okio:1.14.0'
+
+    //BD Map
+    api files('libs/BaiduLBS_Android.jar')
+
+    //图库选择
+    api project(':Extras:picture_library')
+
+    //bugly
+    api "com.tencent.bugly:crashreport_upgrade:latest.release"
+    api "com.tencent.tinker:tinker-android-lib:latest.release"
+    api "com.tencent.bugly:nativecrashreport:latest.release"
+
+    //jsoup
+    api 'org.jsoup:jsoup:1.11.3'
+}

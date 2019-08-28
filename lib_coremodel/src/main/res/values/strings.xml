@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CoreModel</string>
+    <string name="server_not_responding">服务器无响应</string>
+
+</resources>

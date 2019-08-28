@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.qmuiteam.qmui.widget.QMUITopBar
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/qmui_topbar_height"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dp_20"
+            app:qmui_topbar_bg_color="@color/white"
+            app:qmui_topbar_image_btn_height="@dimen/dp_21"
+            app:qmui_topbar_image_btn_width="@dimen/dp_22"
+            app:qmui_topbar_left_back_drawable_id="@drawable/icon_back"
+            app:qmui_topbar_separator_color="@color/transparent"
+            app:qmui_topbar_title_color="@color/black"
+            app:qmui_topbar_title_text_size="@dimen/sp_18" />
+
+        <com.qmuiteam.qmui.widget.QMUIEmptyView
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/qmui_topbar_height"
+            android:background="@color/transparent"
+            app:qmui_show_loading="true"
+            app:qmui_title_text="正在加载">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/store_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:overScrollMode="never"
+                android:paddingTop="@dimen/dp_10"
+                android:scrollbars="none"
+                android:visibility="gone" />
+
+
+        </com.qmuiteam.qmui.widget.QMUIEmptyView>
+
+
+    </FrameLayout>
+
+</layout>
